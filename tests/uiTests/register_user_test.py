@@ -28,16 +28,16 @@ class TestRegisterUser:
 
             # Enter name and email address
             rand_info = GenericHelpers(self.driver).generate_random_email_and_password()
-            login_page.fill_signup_form(rand_info['password'], rand_info['email'])
+            login_actions.fill_signup_form(rand_info['password'], rand_info['email'])
 
             # Verify that 'ENTER ACCOUNT INFORMATION' is visible
             login_page_asserts.assert_signup_full_form_visible()
             login_actions.enter_account_information(utils.NAME, rand_info['password'])
-            login_page.fill_account_information()
-            login_page.successfully_created_account(utils.ACCOUNT_CREATED)
+            login_actions.fill_account_information()
+            login_page_asserts.successfully_created_account(utils.ACCOUNT_CREATED)
 
             # Delete account
-            login_page.delete_account()
+            login_actions.delete_account()
 
         except (NoSuchElementException, AttributeError, StaleElementReferenceException) as e:
             logger.error("Locator issue, maybe it was not shown or found by driver")
