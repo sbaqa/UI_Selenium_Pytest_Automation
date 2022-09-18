@@ -14,5 +14,5 @@ YEAR = "1990"
 ACCOUNT_CREATED = "ACCOUNT CREATED!"
 TEST_USER_NAME = "testuser"
 
-def whoami():
-    return inspect.stack()[1][3]
+# def whoami():
+#     return inspect.stack()[1][3]
