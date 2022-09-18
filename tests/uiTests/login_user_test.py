@@ -41,6 +41,7 @@ class TestLoginPage:
 
         except (NoSuchElementException, AttributeError, StaleElementReferenceException) as e:
             logger.error("Locator issue, maybe it was not shown or found by driver")
+            self.driver.refresh()
             raise e
 
         else:
@@ -99,6 +100,7 @@ class TestLoginPage:
 
         except (NoSuchElementException, AttributeError, StaleElementReferenceException) as e:
             logger.error("Locator issue, maybe it was not shown or found by driver")
+            self.driver.refresh()
             raise e
 
         else:
