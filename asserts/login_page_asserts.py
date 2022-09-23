@@ -16,7 +16,7 @@ class LoginAsserts:
 
     def signup_login_page_check(self):
 
-        # Check url is correct
+        # Check if url is correct
         expected_url = f"{utils.URL}/login"
         found_url = self.driver.current_url
         assert expected_url == found_url, f"Found url => {found_url}, expected url => {expected_url}"
