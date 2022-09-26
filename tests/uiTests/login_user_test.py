@@ -39,13 +39,14 @@ class TestLoginPage:
             # Not relevant step => delete account which is not needed for happy pass in this test case
             # login_page.delete_account()
 
-        except (NoSuchElementException, AttributeError, StaleElementReferenceException) as e:
-            logger.error("Locator issue, maybe it was not shown or found by driver")
+        except (NoSuchElementException, StaleElementReferenceException):
+            logger.info("Locator issue, maybe it was not shown or found by driver")
             self.driver.refresh()
-            raise e
 
-        else:
-            logger.info("In case if something mysterious happens => please check logs in CLI")
+        except AttributeError as e:
+            logger.error(">>> Searching element method may have an issue now or found data cannot be handled in "
+                         "current test, so check the logs attentively please <<<")
+            raise e
 
     @pytest.mark.tc3
     def test_login_user_with_incorrect_email_and_password(self):
@@ -62,13 +63,14 @@ class TestLoginPage:
             login_actions.fill_credentials(utils.INCORRECT_EMAIL, utils.INCORRECT_PASSWORD)
             login_page_asserts.incorrect_email_password_alert_shown("Your email or password is incorrect!")
 
-        except (NoSuchElementException, AttributeError, StaleElementReferenceException) as e:
-            logger.error("Locator issue, maybe it was not shown or found by driver")
+        except (NoSuchElementException, StaleElementReferenceException):
+            logger.info("Locator issue, maybe it was not shown or found by driver")
             self.driver.refresh()
-            raise e
 
-        else:
-            logger.info("In case if something mysterious happens => please check logs in CLI")
+        except AttributeError as e:
+            logger.error(">>> Searching element method may have an issue now or found data cannot be handled in "
+                         "current test, so check the logs attentively please <<<")
+            raise e
 
     @pytest.mark.tc4
     def test_logout_user(self):
@@ -98,10 +100,11 @@ class TestLoginPage:
             login_actions.click_logout_navbar()
             login_page_asserts.verify_login_page_visible()
 
-        except (NoSuchElementException, AttributeError, StaleElementReferenceException) as e:
-            logger.error("Locator issue, maybe it was not shown or found by driver")
+        except (NoSuchElementException, StaleElementReferenceException):
+            logger.info("Locator issue, maybe it was not shown or found by driver")
             self.driver.refresh()
-            raise e
 
-        else:
-            logger.info("In case if something mysterious happens => please check logs in CLI")
+        except AttributeError as e:
+            logger.error(">>> Searching element method may have an issue now or found data cannot be handled in "
+                         "current test, so check the logs attentively please <<<")
+            raise e
