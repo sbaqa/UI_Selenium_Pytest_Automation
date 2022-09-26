@@ -41,7 +41,6 @@ class TestRegisterUser:
 
         except (NoSuchElementException, StaleElementReferenceException):
             logger.info("Locator issue, maybe it was not shown or found by driver")
-            self.driver.refresh()
 
         except AttributeError as e:
             logger.error(">>> Searching element method may have an issue now or found data cannot be handled in "
