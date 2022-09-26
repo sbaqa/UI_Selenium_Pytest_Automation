@@ -39,9 +39,11 @@ class TestRegisterUser:
             # Delete account
             login_actions.delete_account()
 
-        except (NoSuchElementException, AttributeError, StaleElementReferenceException) as e:
-            logger.error("Locator issue, maybe it was not shown or found by driver")
-            raise e
+        except (NoSuchElementException, StaleElementReferenceException):
+            logger.info("Locator issue, maybe it was not shown or found by driver")
+            self.driver.refresh()
 
-        else:
-            logger.info("In case if something mysterious happens => please check logs in CLI")
+        except AttributeError as e:
+            logger.error(">>> Searching element method may have an issue now or found data cannot be handled in "
+                         "current test, so check the logs attentively please <<<")
+            raise e
