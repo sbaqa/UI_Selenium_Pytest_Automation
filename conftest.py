@@ -20,7 +20,7 @@ from utils import utils
 def pytest_runtest_makereport(item):
     """
     Extends the pytest-html plugin to take and embed screenshot in html report, whenever test failed or xfailed.
-    Detailed explanation could be found here https://www.youtube.com/watch?v=e6tL7IudnXY
+    Detailed explanation could be found here => https://www.youtube.com/watch?v=e6tL7IudnXY
     """
     pytest_html = item.config.pluginmanager.getplugin('html')
     outcome = yield
