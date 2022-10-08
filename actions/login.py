@@ -96,7 +96,7 @@ class LoginActions:
                 field.send_keys(input_value)
                 assert len(input_value) == 10, f"Actual found value length => {len(input_value)}"
 
-        # Open 'country' dd, check if all options visible, select any option and click on it
+        # Open 'country' dropdown, check if all options visible, select any option and click on it
         self.driver.find_element(By.XPATH, value=f"{l_s_locators.address_information_value_xpath}/select").click()
         country_options = self.driver.find_elements(By.XPATH,
                                                     value=f"{l_s_locators.address_information_value_xpath}//option")
