@@ -21,7 +21,7 @@ class LoginAsserts:
         found_url = self.driver.current_url
         assert expected_url == found_url, f"Found url => {found_url}, expected url => {expected_url}"
 
-        # Check login page title detected
+        # Check login page title is detected
         self.verify_login_page_visible()
 
         # Check login form header is correct
