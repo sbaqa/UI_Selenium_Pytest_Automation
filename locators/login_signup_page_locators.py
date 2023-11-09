@@ -25,3 +25,7 @@ class LoginSignupLocators:
     user_name_navbar_xpath = "//a/b[contains(text(), '%s')]"
     delete_account_button_xpath = "//a[text()=' Delete Account']"
     logout_button_xpath = "//a[text()=' Logout']"
+    close_advertising_button_xpath = "//span[text()='Close']"
+    close_advertising_x_button_id = "dismiss-button"
+    login_header_xpath = "//div[@class='login-form']/h2"
+    full_signup_form_xpath = "//h2/b[text()='Enter Account Information']"
