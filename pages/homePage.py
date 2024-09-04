@@ -34,3 +34,8 @@ class HomePage(DefaultSeleniumDriver):
         self.click_accept_cookies_button()
 
         return LoginPage(self.driver)
+
+    # def hover_over_element(self, element):
+    #     a = ActionChains(self.driver)
+    #     f_e = self.driver.find_element(By.ID, element)
+    #     a.move_to_element(f_e).perform()
