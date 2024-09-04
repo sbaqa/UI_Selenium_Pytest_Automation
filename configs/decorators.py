@@ -2,7 +2,7 @@ from functools import wraps
 import logging as logger
 
 # Configure logger
-logger.basicConfig(level=logger.ERROR)  # Set level to DEBUG or lower to capture all logs
+logger.basicConfig(level=logger.ERROR)
 logger = logger.getLogger(__name__)
 
 def retry(retries=3, exceptions=None):
