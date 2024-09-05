@@ -64,10 +64,7 @@ class LoginPage(DefaultSeleniumDriver):
     #
     #         else:
     #             raise Exception("Something wrong on with entered credentials, please debug the issue")
-    #
-    # def click_cancel_button_forgot_password_form(self):
-    #     self.driver.find_element(By.XPATH, self.cancel_button_xpath).click()
-    #
+
     # def cancel_fill_forgot_password_form(self, title):
     #     custom_page_title = self.driver.find_element(By.XPATH, self.title_name_xpath % title).text
     #     assert custom_page_title == utils.utils.forgotPasswordTitle, f"Actual found title => {custom_page_title}"
@@ -75,7 +72,7 @@ class LoginPage(DefaultSeleniumDriver):
     #     current_redirection_url = self.driver.current_url
     #     assert current_redirection_url == utils.utils.cancelForgotPasswordUrl, f"Url after wrong credentials " \
     #                                                                      f"is wrong, found {current_redirection_url}"
-    #
+
     # def fill_username_forgot_password_input(self, user):
     #     self.driver.find_element(By.NAME, self.security_user_name).send_keys(Keys.CONTROL + 'a', Keys.DELETE)
     #     self.driver.find_element(By.NAME, self.security_user_name).send_keys(user)
@@ -92,7 +89,7 @@ class LoginPage(DefaultSeleniumDriver):
     #     logger.info("User closed 'Please contact HR...' banner")
     #     banner_elem = self.driver.find_element(By.XPATH, self.contact_hr_xpath).is_displayed()
     #     assert banner_elem is True, f"ERROR! Actual boolean => {banner_elem}"
-    #
+
     # def fill_forgot_password_form(self, user):
     #     self.click_forgot_password_link()
     #     self.fill_username_forgot_password_input(user)
