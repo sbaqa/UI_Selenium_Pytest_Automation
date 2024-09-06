@@ -2,9 +2,9 @@ import time
 import random
 import string
 import logging as logger
+from pages.deletedAccountPage import DeletedAccount
 from utils import utils as utils
 from selenium.webdriver.common.by import By
-from asserts.login_page_asserts import LoginAsserts
 from locators.login_signup_page_locators import LoginSignupLocators
 from helpers.requests_helper import RequestsUtility
 from pages.loginPage import LoginPage
@@ -17,7 +17,9 @@ class LoginActions:
         self.driver = driver
         self.requests_helper = RequestsUtility()
         self.login_page = LoginPage(self.driver)
-        self.login_page_asserts = LoginAsserts(self.driver)
+
+    def click_topnav_signup_login_link(self):
+        self.driver.find_element(By.XPATH, value=f"{l_s_locators.login_signup_topnav_link_xpath}").click()
 
     def fill_credentials(self, username, password):
         self.login_page.get_email_input().send_keys(username)
@@ -96,7 +98,7 @@ class LoginActions:
                 field.send_keys(input_value)
                 assert len(input_value) == 10, f"Actual found value length => {len(input_value)}"
 
-        # Open 'country' dropdown, check if all options visible, select any option and click on it
+        # Open 'country' dd, check if all options visible, select any option and click on it
         self.driver.find_element(By.XPATH, value=f"{l_s_locators.address_information_value_xpath}/select").click()
         country_options = self.driver.find_elements(By.XPATH,
                                                     value=f"{l_s_locators.address_information_value_xpath}//option")
@@ -109,7 +111,7 @@ class LoginActions:
         self.driver.find_element(By.XPATH, value=f"{l_s_locators.create_account_button_xpath}").click()
 
     def delete_account(self):
-        email = self.login_page_asserts.user_name_is_visible(utils.TEST_USER_NAME)
+        email = self.login_page.assert_user_name_is_visible(utils.TEST_USER_NAME)
         self.driver.find_element(By.XPATH, value=f"{l_s_locators.delete_account_button_xpath}").click()
 
         payload = {
@@ -117,6 +119,8 @@ class LoginActions:
         }
 
         self.requests_helper.delete(f"deleteAccount", body_params=payload, expected_status_code=200)
+
+        return DeletedAccount(self.driver)
 
     def click_logout_navbar(self):
         self.driver.find_element(By.XPATH, value=f"{l_s_locators.logout_button_xpath}").click()
