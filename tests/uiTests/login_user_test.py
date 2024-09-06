@@ -35,3 +35,18 @@ def test_login_user_correct_email_and_password(login_test_setup, email, password
 
     # Verify that 'Logged in as username' is visible and delete account
     login_page.assert_user_name_is_visible(utils.NAME)
+
+
+@pytest.mark.tc3
+def test_login_user_with_incorrect_email_and_password(login_test_setup):
+    """ Test Case #3: login with incorrect email and password """
+
+    # Sign in and check alert message show up
+    login_actions = HomePage(login_test_setup).assert_home_page_visible()
+    login_page = HomePage(login_test_setup).accept_cookies()
+
+    # click Signup/Login link and verify 'Login to your account' text is visible
+    login_actions.click_topnav_signup_login_link()
+    login_page.assert_login_page_is_visible()
+    login_actions.fill_credentials(utils.INCORRECT_EMAIL, utils.INCORRECT_PASSWORD)
+    login_page.assert_incorrect_email_password_alert_shown(utils.INCORRECT_EMAIL_ALERT)
