@@ -50,3 +50,25 @@ def test_login_user_with_incorrect_email_and_password(login_test_setup):
     login_page.assert_login_page_is_visible()
     login_actions.fill_credentials(utils.INCORRECT_EMAIL, utils.INCORRECT_PASSWORD)
     login_page.assert_incorrect_email_password_alert_shown(utils.INCORRECT_EMAIL_ALERT)
+
+@pytest.mark.tc4
+def test_logout_user(login_test_setup):
+    """Test Case #4: logout user with correct credentials"""
+
+    # Sign in and check alert message show up
+    login_actions = HomePage(login_test_setup).assert_home_page_visible()
+    login_page = HomePage(login_test_setup).accept_cookies()
+
+    # click Signup/Login link and verify 'Login to your account' is visible
+    login_actions.click_topnav_signup_login_link()
+    login_page.assert_login_page_is_visible()
+
+    # fill form and click login
+    login_actions.fill_credentials(utils.CORRECT_EMAIL, utils.CORRECT_PASSWORD)
+
+    # Verify that 'Logged in as username' is visible
+    login_page.assert_user_name_is_visible(utils.NAME)
+
+    # Click logout and verify user is navigated to login page
+    login_actions.click_logout_navbar()
+    login_page.verify_login_page_visible()
