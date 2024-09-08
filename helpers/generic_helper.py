@@ -1,15 +1,14 @@
 import time
-from time import time
-from selenium.webdriver.common.by import By
 import logging as logger
 import random
 import string
+from time import time
+from selenium.webdriver.common.by import By
+from pages.abstractPage import DefaultSeleniumDriver
 
-class GenericHelpers:
+link_style_color_xpath = "//a[contains(@style, 'color: orange;')]"
 
-    def __init__(self, driver):
-        self.driver = driver
-        self.link_style_color_xpath = "//a[contains(@style, 'color: orange;')]"
+class GenericHelpers(DefaultSeleniumDriver):
 
     def check_page_title(self, page_name):
 
@@ -21,11 +20,12 @@ class GenericHelpers:
         assert page_name in title, f"Expected {page_name} in {title}"
 
     def check_active_link_navbar(self, class_color):
-        active_navbar_link = self.driver.find_element(By.XPATH, self.link_style_color_xpath).get_attribute('style')
+        active_navbar_link = self.driver.find_element(By.XPATH, link_style_color_xpath).get_attribute('style')
         assert class_color in active_navbar_link, f"Expected color => {class_color}, found style attribute => " \
                                                   f"{active_navbar_link}"
 
-    def generate_random_email_and_password(self, domain=None, email_prefix=None):
+    @staticmethod
+    def generate_random_email_and_password(domain=None, email_prefix=None):
         logger.debug("Generating random email and password.")
 
         # Set domain and email prefix for email generation
@@ -50,6 +50,7 @@ class GenericHelpers:
 
         return random_info
 
-    def generate_random_integer(self):
+    @staticmethod
+    def generate_random_integer():
         random_integer = int(random.randrange(500000000))
         return random_integer
