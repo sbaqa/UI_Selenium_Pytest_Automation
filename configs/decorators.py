@@ -5,7 +5,7 @@ import logging as logger
 logger.basicConfig(level=logger.ERROR)
 logger = logger.getLogger(__name__)
 
-def retry(retries=3, exceptions=None):
+def handle_exceptions(retries=3, exceptions=None):
     """
     Decorator to handle Selenium exceptions and retry the test.
 
