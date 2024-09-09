@@ -5,7 +5,7 @@ from helpers.generic_helper import GenericHelpers
 from pages.homePage import HomePage
 from utils import utils as utils
 
-@retry(exceptions=(NoSuchElementException, StaleElementReferenceException))
+@handle_exceptions(exceptions=(NoSuchElementException, StaleElementReferenceException))
 @pytest.mark.regression
 @pytest.mark.tc1
 def test_register_user(login_test_setup):
