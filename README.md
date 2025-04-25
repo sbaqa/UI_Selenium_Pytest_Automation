@@ -34,3 +34,31 @@ UI_Selenium_Pytest_Automation/
 ├── requirements.txt   # Project dependencies
 └── README.md          # Project documentation
 
+---
+
+## ⚙️ Prerequisites
+
+- Python 3.8 or higher
+- Google Chrome or any supported browser
+- pip (Python package manager)
+
+---
+
+## 🛠️ Setup Instructions
+
+```bash
+git clone https://github.com/sbaqa/UI_Selenium_Pytest_Automation.git
+cd UI_Selenium_Pytest_Automation
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+brew install allure
+```
+## ▶️ Running Tests
+
+Run a specific module with tests: pytest tests/test_login.py
+Run Tests in Parallel (4 threads): pytest -n 4
+Generate Allure Report Results: pytest --alluredir=reports/allure-results
+Open Allure Report in Browser: allure serve reports/allure-results
+
+
