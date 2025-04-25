@@ -24,7 +24,17 @@ Perfect for scalable, maintainable, and parallel UI test execution for web appli
 
 ## 📁 Project Structure
 
-<pre lang="markdown"> ```text UI_Selenium_Pytest_Automation/ ├── configs/ # Environment and base configs ├── pages/ # Page object models ├── reports/ # Allure or HTML reports ├── tests/ # Test cases ├── utils/ # Utility functions and wrappers ├── conftest.py # Pytest fixtures and hooks ├── requirements.txt # Project dependencies └── README.md # Project documentation ``` </pre>
+```
+UI_Selenium_Pytest_Automation/
+├── configs/           # Environment and base configs
+├── pages/             # Page object models
+├── reports/           # Allure or HTML reports
+├── tests/             # Test cases
+├── utils/             # Utility functions and wrappers
+├── conftest.py        # Pytest fixtures and hooks
+├── requirements.txt   # Project dependencies
+└── README.md          # Project documentation
+```
 
 ---
 
