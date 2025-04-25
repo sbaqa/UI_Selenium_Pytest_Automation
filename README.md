@@ -61,7 +61,11 @@ brew install allure
 
 ### Run Tests in Parallel (4 threads): 
 ``` pytest -n 4 ```
-Generate Allure Report Results: pytest --alluredir=reports/allure-results
-Open Allure Report in Browser: allure serve reports/allure-results
+
+### Generate Allure Report Results: 
+``` pytest --alluredir=reports/allure-results ```
+
+### Open Allure Report in Browser:
+``` allure serve reports/allure-results ```
 
 
