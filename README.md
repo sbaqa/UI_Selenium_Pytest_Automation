@@ -26,6 +26,7 @@ Perfect for scalable, maintainable, and parallel UI test execution for web appli
 
 ```
 UI_Selenium_Pytest_Automation/
+
 ├── configs/           # Environment and base configs
 ├── pages/             # Page object models
 ├── reports/           # Allure or HTML reports
