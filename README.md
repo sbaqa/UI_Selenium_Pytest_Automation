@@ -56,7 +56,8 @@ brew install allure
 ```
 ## ▶️ Running Tests
 
-Run a specific module with tests: pytest tests/test_login.py
+Run a specific module with tests: 
+```bashpytest tests/test_login.py ```
 Run Tests in Parallel (4 threads): pytest -n 4
 Generate Allure Report Results: pytest --alluredir=reports/allure-results
 Open Allure Report in Browser: allure serve reports/allure-results
